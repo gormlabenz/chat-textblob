@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-vue",
+  "name": "chat-ui",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -49,5 +49,23 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "It contains prerendering, pwa, babel, taiwlind",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gormlabenz/chat-ui.git"
+  },
+  "keywords": [
+    "chat",
+    "ui",
+    "vue",
+    "web"
+  ],
+  "author": "Gorm Labenz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gormlabenz/chat-ui/issues"
+  },
+  "homepage": "https://github.com/gormlabenz/chat-ui#readme"
 }
