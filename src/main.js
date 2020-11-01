@@ -9,10 +9,10 @@ Vue.config.productionTip = false;
 Vue.use(
   new VueSocketIO({
     debug: true,
-    connection: "http://0.0.0.0:5000",
+    connection: "http://0.0.0.0:5000"
   })
 );
 
 new Vue({
-  render: (h) => h(App),
+  render: (h) => h(App)
 }).$mount("#app");

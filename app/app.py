@@ -10,7 +10,8 @@ def connect(sid, environ):
     print('connect ', sid)
 
 @sio.event
-def client(sid, data):
+def clientToServer(sid, data):
+    sio.emit('serverToClient', 'message from the server')
     print('message ', data)
 
 @sio.event

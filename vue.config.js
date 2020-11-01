@@ -9,10 +9,10 @@ module.exports = {
     }
   },
   pwa: {
-    name: 'Sgriffle',
+    name: "Chat",
     themeColor: "#4DBA87",
-    msTileColor: '#000000',
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
+    msTileColor: "#000000",
+    appleMobileWebAppCapable: "yes",
+    appleMobileWebAppStatusBarStyle: "black"
   }
 };
