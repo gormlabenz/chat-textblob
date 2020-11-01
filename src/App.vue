@@ -7,14 +7,14 @@
           :key="message.time"
           class="flex"
           v-bind:class="{
-            'flex-row-reverse': message.re,
+            'flex-row-reverse': message.client,
           }"
         >
           <p
             class="text-white px-4 py-2 bg-blue-900 shadow-lg rounded-full"
             v-bind:class="{
-              'rounded-tr-none': message.re,
-              'rounded-tl-none': !message.re,
+              'rounded-tr-none': message.client,
+              'rounded-tl-none': !message.client,
             }"
           >
             {{ message.text }}
@@ -53,23 +53,22 @@ export default {
     connect: function() {
       console.log("socket connected");
     },
-    /*         customEmit: function (data) {
-            console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
-        } */
+    /* customEmit: function(data) {
+      console.log(
+        'this method was fired by the socket server. eg: io.emit("customEmit", data)'
+      );
+    }, */
   },
   methods: {
     sendMessage() {
-      let remainder = false;
-      if (this.messages.length % 2 == 1) {
-        remainder = true;
-      }
       if (this.activeMessage) {
-        this.messages.push({
-          user: true,
+        let message = {
+          client: true,
           text: this.activeMessage,
           time: new Date().toTimeString(),
-          re: remainder,
-        });
+        };
+        this.messages.push(message);
+        this.$socket.emit("client", message);
         this.activeMessage = "";
       }
     },

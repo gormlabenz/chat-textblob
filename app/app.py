@@ -10,7 +10,7 @@ def connect(sid, environ):
     print('connect ', sid)
 
 @sio.event
-def my_message(sid, data):
+def client(sid, data):
     print('message ', data)
 
 @sio.event
