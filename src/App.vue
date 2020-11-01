@@ -11,10 +11,10 @@
           }"
         >
           <p
-            class="text-white px-4 py-2  bg-blue-900 shadow-lg "
+            class="text-white px-4 py-2 bg-blue-900 shadow-lg rounded-full"
             v-bind:class="{
-              'rounded-full rounded-tr-none self-end': message.re,
-              'rounded-full rounded-tl-none ': !message.re,
+              'rounded-tr-none': message.re,
+              'rounded-tl-none': !message.re,
             }"
           >
             {{ message.text }}
@@ -48,6 +48,14 @@ export default {
       activeMessage: "",
       messages: [],
     };
+  },
+  sockets: {
+    connect: function() {
+      console.log("socket connected");
+    },
+    /*         customEmit: function (data) {
+            console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
+        } */
   },
   methods: {
     sendMessage() {
