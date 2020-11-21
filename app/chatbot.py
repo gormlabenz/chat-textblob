@@ -2,6 +2,7 @@ from textblob.classifiers import NaiveBayesClassifier
 import json
 import random
 from pathlib import Path
+import pprint
 
 
 class Chatbot:
@@ -43,11 +44,15 @@ class Chatbot:
         Train a classifier dependeding on the data
         """
         train = []
+
         for intent in self.data["intents"]:
             for pattern in intent["patterns"]:
-                train.append((pattern, intent["tag"]))
+                train.append((pattern, intent["label"]))
 
+        pprint.pprint(train)
         cl = NaiveBayesClassifier(train)
+        print('Accuracity: ', cl.accuracy(train))
+        cl.show_informative_features(5)  
         return cl
 
     def chat(self, input_text):
@@ -67,6 +72,6 @@ class Chatbot:
         """
         intents = self.data["intents"]
         responses = [
-            intent["responses"] for intent in intents if intent["tag"] == label
+            intent["responses"] for intent in intents if intent["label"] == label
         ]
         return random.choice(responses[0])

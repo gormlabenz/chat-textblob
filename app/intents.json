@@ -43,11 +43,7 @@
     },
     {
       "label": "name",
-      "patterns": [
-        "what is your name",
-        "what should I call you",
-        "whats your name?"
-      ],
+      "patterns": ["what is your name", "c", "whats your name?"],
       "responses": [
         "You can call me Tim.",
         "I'm Tim!",
